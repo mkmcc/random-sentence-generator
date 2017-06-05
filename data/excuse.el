@@ -1,38 +1,26 @@
 ;;; excuse.el -*-emacs-lisp-*-
 ;; converted from excuse.g
-;; automatically created by parse-rsg.el on 06/05/17 11:36:12 AM.
+;; automatically created by convert-grammar.el on 06/05/17 01:27:21 PM.
 ;; do not edit by hand
-(setq rules
-      '(("<something>"
-	 (("motivation")
-	  ("dreams")
-	  ("printout")
-	  ("module" "specification")
-	  ("computer")
-	  ("Mac")
-	  ("notes")
-	  ("book")
-	  ("sense" "of" "purpose")
-	  ("mind")
-	  ("backpack")
-	  ("disk")))
-	("<impressive-number>"
-	 (("like," "a" "bunch" "of")
-	  ("mega")
-	  ("tons" "of")
-	  ("like," "a" "billion")
-	  ("7")
-	  ("4")))
-	("<athletic-event>"
-	 (("the" "four-square" "semi-finals")
-	  ("the" "Winter" "Olympics")
-	  ("an" "intramural" "monster" "truck" "meet")
-	  ("an" "alligator" "wrestling" "meet")))
-	("<lots-of-work>"
-	 (("<impressive-number>" "programs" "in" "<impressive-number>" "different" "langauges")
-	  ("to" "finish" "my" "doctoral" "thesis")
-	  ("<impressive-number>" "midterms" "and" "<impressive-number>" "papers")
-	  ("<impressive-number>" "midterms")))
+(setq rsg-rules
+      '(("<start>"
+	 (("I" "need" "an" "extension" "because" "<plea>" ".")))
+	("<plea>"
+	 (("<dubious-excuse>" "," "oh," "and" "then" "<plea>")
+	  ("<dubious-excuse>" "," "and" "and" "then" "if" "I" "recall" "correctly" "<plea>")
+	  ("<dubious-excuse>" "," "and" "right" "about" "then" "<plea>")
+	  ("<dubious-excuse>" "," "and" "just" "then" "<plea>")
+	  ("<dubious-excuse>" "," "and" "then," "just" "when" "my" "mojo" "was" "getting" "back" "on" "its" "feet," "<plea>")
+	  ("<dubious-excuse>" "," "and" "if" "you" "can" "believe" "it," "<plea>")
+	  ("<dubious-excuse>" "," "and" "I'm" "sure" "you've" "heard" "this" "before," "but" "<plea>")
+	  ("<dubious-excuse>" "," "and," "well" "I'm" "a" "little" "embarrassed" "about" "this," "but" "<plea>")
+	  ("<dubious-excuse>" "," "and" "just" "then" "<plea>")
+	  ("<dubious-excuse>" "," "and" "then" "get" "this," "<plea>")
+	  ("<dubious-excuse>" "," "and" "as" "if" "that" "wasn't" "enough" "<plea>")
+	  ("<dubious-excuse>" "," "and" "on" "top" "of" "that" "<plea>")
+	  ("<dubious-excuse>" "," "and" "then" "<plea>")
+	  ("<dubious-excuse>")
+	  ("<dubious-excuse>")))
 	("<dubious-excuse>"
 	 (("I" "had" "recurring" "dreams" "about" "my" "<something>")
 	  ("my" "<something>" "was" "enshrowded" "in" "a" "mysterious" "fog" "for" "three" "days" "and" "then" "vanished")
@@ -67,22 +55,34 @@
 	  ("my" "roommate" "ate" "my" "<something>")
 	  ("my" "dog" "ate" "my" "<something>")
 	  ("my" "disk" "got" "erased")))
-	("<plea>"
-	 (("<dubious-excuse>" "," "oh," "and" "then" "<plea>")
-	  ("<dubious-excuse>" "," "and" "and" "then" "if" "I" "recall" "correctly" "<plea>")
-	  ("<dubious-excuse>" "," "and" "right" "about" "then" "<plea>")
-	  ("<dubious-excuse>" "," "and" "just" "then" "<plea>")
-	  ("<dubious-excuse>" "," "and" "then," "just" "when" "my" "mojo" "was" "getting" "back" "on" "its" "feet," "<plea>")
-	  ("<dubious-excuse>" "," "and" "if" "you" "can" "believe" "it," "<plea>")
-	  ("<dubious-excuse>" "," "and" "I'm" "sure" "you've" "heard" "this" "before," "but" "<plea>")
-	  ("<dubious-excuse>" "," "and," "well" "I'm" "a" "little" "embarrassed" "about" "this," "but" "<plea>")
-	  ("<dubious-excuse>" "," "and" "just" "then" "<plea>")
-	  ("<dubious-excuse>" "," "and" "then" "get" "this," "<plea>")
-	  ("<dubious-excuse>" "," "and" "as" "if" "that" "wasn't" "enough" "<plea>")
-	  ("<dubious-excuse>" "," "and" "on" "top" "of" "that" "<plea>")
-	  ("<dubious-excuse>" "," "and" "then" "<plea>")
-	  ("<dubious-excuse>")
-	  ("<dubious-excuse>")))
-	("<start>"
-	 (("I" "need" "an" "extension" "because" "<plea>" ".")))))
+	("<lots-of-work>"
+	 (("<impressive-number>" "programs" "in" "<impressive-number>" "different" "langauges")
+	  ("to" "finish" "my" "doctoral" "thesis")
+	  ("<impressive-number>" "midterms" "and" "<impressive-number>" "papers")
+	  ("<impressive-number>" "midterms")))
+	("<athletic-event>"
+	 (("the" "four-square" "semi-finals")
+	  ("the" "Winter" "Olympics")
+	  ("an" "intramural" "monster" "truck" "meet")
+	  ("an" "alligator" "wrestling" "meet")))
+	("<impressive-number>"
+	 (("like," "a" "bunch" "of")
+	  ("mega")
+	  ("tons" "of")
+	  ("like," "a" "billion")
+	  ("7")
+	  ("4")))
+	("<something>"
+	 (("motivation")
+	  ("dreams")
+	  ("printout")
+	  ("module" "specification")
+	  ("computer")
+	  ("Mac")
+	  ("notes")
+	  ("book")
+	  ("sense" "of" "purpose")
+	  ("mind")
+	  ("backpack")
+	  ("disk")))))
 ;;; excuse.el ends here.

@@ -1,19 +1,19 @@
 ;;; poem.el -*-emacs-lisp-*-
 ;; converted from poem.g
-;; automatically created by parse-rsg.el on 06/05/17 11:36:12 AM.
+;; automatically created by convert-grammar.el on 06/05/17 01:27:21 PM.
 ;; do not edit by hand
-(setq rules
-      '(("<adverb>"
-	 (("grumpily")
-	  ("warily")))
-	("<verb>"
-	 (("die" "<adverb>")
-	  ("portend" "like" "<object>")
-	  ("sigh" "<adverb>")))
+(setq rsg-rules
+      '(("<start>"
+	 (("The" "<object>" "<verb>" "tonight.")))
 	("<object>"
 	 (("slugs")
 	  ("big" "yellow" "flowers")
 	  ("waves")))
-	("<start>"
-	 (("The" "<object>" "<verb>" "tonight.")))))
+	("<verb>"
+	 (("die" "<adverb>")
+	  ("portend" "like" "<object>")
+	  ("sigh" "<adverb>")))
+	("<adverb>"
+	 (("grumpily")
+	  ("warily")))))
 ;;; poem.el ends here.
