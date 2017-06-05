@@ -1,9 +1,17 @@
 #! /bin/sh
 ":"; exec emacs --batch --no-site-file -l "$0" # -*-emacs-lisp-*-
 
+;; convert-grammar.el: converts supplied grammar file into lisp-format
+
+;;; USAGE: ./convert-grammar.el
+
+;;; TODO: 1. doesn't technically handle spaces correctly
+;;;       2. may assume a more restrictive format than required
+;;;       3. adapt it to work with scigen???
+
 (defun rsg-parse-rsg-file (fname-in)
   "Parse a .G grammar file into an elisp association list."
-  (let ((rules '()))
+  (let ((rsg-rules '()))
     (with-temp-buffer
       (insert-file-contents fname-in)
       (goto-char (point-min))
@@ -29,8 +37,9 @@
                 (setq option  (split-string option))
                 (setq options (cons option options))))
 
-            (setq rules (cons (list label options) rules))))))
-    rules))
+            (setq rsg-rules
+                  (cons (list label options) rsg-rules))))))
+    (reverse rsg-rules)))
 
 
 (defun rsg-format-setq (var buf)
@@ -42,23 +51,24 @@
   "Convert a .G file to a .EL file."
   (let* ((base (file-name-sans-extension fname-in))
          (fname-out (concat base ".el"))
-         (rules (rsg-parse-rsg-file fname-in)))
+         (rsg-rules (rsg-parse-rsg-file fname-in)))
 
     (with-temp-file fname-out
       ;; header
       (insert
        (format ";;; %s -*-emacs-lisp-*-\n" (file-name-nondirectory fname-out))
        (format ";; converted from %s\n" (file-name-nondirectory fname-in))
-       (format ";; automatically created by parse-rsg.el on %s.\n"
+       (format ";; automatically created by convert-grammar.el on %s.\n"
                (format-time-string "%D %r"))
        ";; do not edit by hand\n")
 
-      (rsg-format-setq 'rules (current-buffer))
+      (rsg-format-setq 'rsg-rules (current-buffer))
 
       ;; footer
       (insert (format ";;; %s ends here.\n"
                       (file-name-nondirectory fname-out))))
     (message "Converted file %s to %s." fname-in fname-out)))
 
+;; loop over all grammar files in the data/ directory
 (let ((files (directory-files "data" t "\\.g$")))
-  (mapcar 'rsg-convert-file files))
+  (mapc 'rsg-convert-file files))
