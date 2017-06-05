@@ -33,10 +33,12 @@ list."
 
 
 (defun rsg-update-sentence (item)
+  "Update the entire sentence using the rules in `rsg-rules'."
   (rsg-flatten (mapcar 'rsg-update-item item)))
 
 
 (defun rsg-update-until-convergence (item)
+  "Repeatedly update the sentence until it converges."
   (let ((old item)
         (new (rsg-update-sentence item)))
 
@@ -49,6 +51,7 @@ list."
 
 
 (defun make-sentence ()
+  "Generate a random text drawn from the instructions in `rsg-rules'."
   (let ((text (rsg-update-until-convergence '("<start>"))))
     (insert (mapconcat 'identity text " ")))
 
@@ -64,6 +67,7 @@ list."
   (newline))
 
 
+;; "the program in itself"
 (with-temp-file "output.txt"
   (let ((standard-output (current-buffer))
         (infile (cadr argv)))
